@@ -1,10 +1,11 @@
 <template>
-  <div style="height: 500px; width: 100%">
+  <div v-bind:style="{ height: height + 'px', width: width + 'px' }">
     <div style="height: 200px; overflow: auto">
       <p>First marker is placed at {{ withPopup.lat }}, {{ withPopup.lng }}</p>
       <p>Center is at {{ currentCenter }} and the zoom is: {{ currentZoom }}</p>
       <button @click="showLongText">Toggle long popup</button>
       <button @click="showMap = !showMap">Toggle map</button>
+      <button @click="Increase">Increase</button>
     </div>
     <l-map
       v-if="showMap"
@@ -89,6 +90,8 @@ export default {
         zoomSnap: 0.5,
       },
       showMap: true,
+      height: 500,
+      width: 500,
     };
   },
   methods: {
@@ -103,6 +106,10 @@ export default {
     },
     innerClick() {
       alert("Click!");
+    },
+    Increase() {
+      this.height += 10;
+      this.width += 10;
     },
   },
 };
