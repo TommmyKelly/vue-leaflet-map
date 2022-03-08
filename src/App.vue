@@ -58,12 +58,15 @@
         </l-tooltip>
       </l-marker>
     </l-map>
+    <div>hello</div>
+    <Test />
   </div>
 </template>
 
 <script>
 import { latLng } from "leaflet";
 import { LMap, LTileLayer, LMarker, LPopup, LTooltip } from "vue2-leaflet";
+import Marker from "./Marker.vue";
 
 export default {
   name: "Example",
@@ -73,6 +76,7 @@ export default {
     LMarker,
     LPopup,
     LTooltip,
+    Test: Marker,
   },
   data() {
     return {
